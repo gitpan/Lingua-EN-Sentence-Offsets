@@ -21,9 +21,11 @@ say '</sentences>';
 # ABSTRACT: Create XML-like file with split sentences.
 # PODNAME: split_sentences
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -31,7 +33,7 @@ split_sentences - Create XML-like file with split sentences.
 
 =head1 VERSION
 
-version 0.01_06
+version 0.03
 
 =head1 AUTHOR
 
@@ -45,4 +47,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

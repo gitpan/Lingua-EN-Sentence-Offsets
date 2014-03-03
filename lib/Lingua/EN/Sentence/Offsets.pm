@@ -1,8 +1,6 @@
 use strict; use warnings;
 package Lingua::EN::Sentence::Offsets;
-{
-  $Lingua::EN::Sentence::Offsets::VERSION = '0.01_06';
-}
+$Lingua::EN::Sentence::Offsets::VERSION = '0.03';
 require Exporter;
 
 #ABSTRACT: Finds sentence boundaries, and returns their offsets.
@@ -116,7 +114,7 @@ sub remove_false_eos {
 		$unsplit = 1 if $s =~ m{['"]$P['"]\s+$}s;
 
 		## fix where abbreviations exist
-		foreach (@ABBREVIATIONS){ $unsplit = $1 if $s =~ /\b$_$PAP\s$/is; }
+		foreach (@ABBREVIATIONS){ $unsplit = 1 if $s =~ /\b$_$PAP\s$/is; }
 
 		# don't break after quote unless its a capital letter.
 		$unsplit = 1 if $s =~ /["']\s*$/s and $t =~ /^\s*[[:lower:]]/s;
@@ -284,9 +282,11 @@ sub offsets2sentences {
 
 1;
 
-
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -294,7 +294,7 @@ Lingua::EN::Sentence::Offsets - Finds sentence boundaries, and returns their off
 
 =head1 VERSION
 
-version 0.01_06
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -377,7 +377,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-
